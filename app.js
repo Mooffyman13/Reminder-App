@@ -81,7 +81,7 @@ class App extends Component {
                   <input type="text" name="username" placeholder="Title" onChange={this.handleChange} value={this.state.username} />
                   <input type="text" name="description" placeholder="Description" onChange={this.handleChange} value={this.state.description} />
                   <input type="Date" name="date"  onChange={this.handleChange} value={this.state.date} />
-                  <input type="Time" name="time"  onChange={this.handleChange} value={this.state.date} />
+                  <input type="Time" name="time"  onChange={this.handleChange} value={this.state.time} />
                   <input type="text" name="currentItem" placeholder="What type of household item are you?" onChange={this.handleChange} value={this.state.currentItem} />
                   <button>Add Reminder</button>
                 </form>
