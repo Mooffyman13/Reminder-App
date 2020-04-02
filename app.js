@@ -11,6 +11,7 @@ class App extends Component {
       username: '',
       description: '',
       date:'',
+      time:'',
       items: []
     }
     this.handleChange = this.handleChange.bind(this);
@@ -28,7 +29,8 @@ class App extends Component {
       title: this.state.currentItem,
       user: this.state.username,
       description: this.state.description,
-      date: this.state.date
+      date: this.state.date,
+      time: this.state.date
 
     }
     itemsRef.push(item);
@@ -36,7 +38,8 @@ class App extends Component {
       currentItem: '',
       username: '',
       description: '',
-      date: ''
+      date: '',
+      time: ''
     });
   }
   componentDidMount() {
@@ -50,7 +53,8 @@ class App extends Component {
           title: items[item].title,
           user: items[item].user,
           description: items[item].description,
-          date: items[item].date
+          date: items[item].date,
+          time: items[item].time
         });
       }
       this.setState({
@@ -76,9 +80,10 @@ class App extends Component {
                 <form onSubmit={this.handleSubmit}>
                   <input type="text" name="username" placeholder="Title" onChange={this.handleChange} value={this.state.username} />
                   <input type="text" name="description" placeholder="Description" onChange={this.handleChange} value={this.state.description} />
-                  <input type="Date" name="date" placeholder="Date" onChange={this.handleChange} value={this.state.date} />
-                  <input type="text" name="currentItem" placeholder="What are you bringing?" onChange={this.handleChange} value={this.state.currentItem} />
-                  <button>Add Item</button>
+                  <input type="Date" name="date"  onChange={this.handleChange} value={this.state.date} />
+                  <input type="Time" name="time"  onChange={this.handleChange} value={this.state.date} />
+                  <input type="text" name="currentItem" placeholder="What type of household item are you?" onChange={this.handleChange} value={this.state.currentItem} />
+                  <button>Add Reminder</button>
                 </form>
           </section>
           <section className='display-item'>
@@ -91,7 +96,8 @@ class App extends Component {
                         <p>{item.title}<br/>
                         {item.description}<br/>
                         {item.date}<br/>
-                          <button onClick={() => this.removeItem(item.id)}>Delete Reminder</button>
+                        {item.time}<br/>
+                          <button onClick={() => this.removeItem(item.id)}>Remove Reminder</button>
                         </p>
                       </li>
                     )
