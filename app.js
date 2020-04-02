@@ -87,9 +87,11 @@ class App extends Component {
                   {this.state.items.map((item) => {
                     return (
                       <li key={item.id}>
-                        <h3>{item.title}</h3>
-                        <p>brought by: {item.user}
-                          <button onClick={() => this.removeItem(item.id)}>Remove Item</button>
+                        <h3>{item.user}</h3>
+                        <p>{item.title}<br/>
+                        {item.description}<br/>
+                        {item.date}<br/>
+                          <button onClick={() => this.removeItem(item.id)}>Delete Reminder</button>
                         </p>
                       </li>
                     )
