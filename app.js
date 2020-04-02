@@ -9,6 +9,8 @@ class App extends Component {
     this.state = {
       currentItem: '',
       username: '',
+      description: '',
+      date:'',
       items: []
     }
     this.handleChange = this.handleChange.bind(this);
@@ -24,12 +26,17 @@ class App extends Component {
     const itemsRef = firebase.database().ref('items');
     const item = {
       title: this.state.currentItem,
-      user: this.state.username
+      user: this.state.username,
+      description: this.state.description,
+      date: this.state.date
+
     }
     itemsRef.push(item);
     this.setState({
       currentItem: '',
-      username: ''
+      username: '',
+      description: '',
+      date: ''
     });
   }
   componentDidMount() {
@@ -41,7 +48,9 @@ class App extends Component {
         newState.push({
           id: item,
           title: items[item].title,
-          user: items[item].user
+          user: items[item].user,
+          description: items[item].description,
+          date: items[item].date
         });
       }
       this.setState({
@@ -58,14 +67,16 @@ class App extends Component {
       <div className='app'>
         <header>
             <div className="wrapper">
-              <h1>Fun Food Friends</h1>
+              <h1>Reminder App</h1>
                              
             </div>
         </header>
         <div className='container'>
           <section className='add-item'>
                 <form onSubmit={this.handleSubmit}>
-                  <input type="text" name="username" placeholder="What's your name?" onChange={this.handleChange} value={this.state.username} />
+                  <input type="text" name="username" placeholder="Title" onChange={this.handleChange} value={this.state.username} />
+                  <input type="text" name="description" placeholder="Description" onChange={this.handleChange} value={this.state.description} />
+                  <input type="Date" name="date" placeholder="Date" onChange={this.handleChange} value={this.state.date} />
                   <input type="text" name="currentItem" placeholder="What are you bringing?" onChange={this.handleChange} value={this.state.currentItem} />
                   <button>Add Item</button>
                 </form>
