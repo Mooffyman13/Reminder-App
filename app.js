@@ -30,7 +30,7 @@ class App extends Component {
       user: this.state.username,
       description: this.state.description,
       date: this.state.date,
-      time: this.state.date
+      time: this.state.time
 
     }
     itemsRef.push(item);
