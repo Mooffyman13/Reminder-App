@@ -7,8 +7,7 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      currentItem: '',
-      username: '',
+      title: '',
       description: '',
       date:'',
       time:'',
@@ -26,8 +25,7 @@ class App extends Component {
     e.preventDefault();
     const itemsRef = firebase.database().ref('items');
     const item = {
-      title: this.state.currentItem,
-      user: this.state.username,
+      title: this.state.title,
       description: this.state.description,
       date: this.state.date,
       time: this.state.time
@@ -35,11 +33,11 @@ class App extends Component {
     }
     itemsRef.push(item);
     this.setState({
-      currentItem: '',
-      username: '',
+      title: '',
       description: '',
       date: '',
-      time: ''
+      time: '',
+      notes: ''
     });
   }
   componentDidMount() {
@@ -51,7 +49,6 @@ class App extends Component {
         newState.push({
           id: item,
           title: items[item].title,
-          user: items[item].user,
           description: items[item].description,
           date: items[item].date,
           time: items[item].time
@@ -78,11 +75,10 @@ class App extends Component {
         <div className='container'>
           <section className='add-item'>
                 <form onSubmit={this.handleSubmit}>
-                  <input type="text" name="username" placeholder="Title" onChange={this.handleChange} value={this.state.username} />
+                  <input type="text" name="title" placeholder="Title" onChange={this.handleChange} value={this.state.username} />
                   <input type="text" name="description" placeholder="Description" onChange={this.handleChange} value={this.state.description} />
                   <input type="Date" name="date"  onChange={this.handleChange} value={this.state.date} />
                   <input type="Time" name="time"  onChange={this.handleChange} value={this.state.time} />
-                  <input type="text" name="currentItem" placeholder="What type of household item are you?" onChange={this.handleChange} value={this.state.currentItem} />
                   <button>Add Reminder</button>
                 </form>
           </section>
@@ -92,9 +88,8 @@ class App extends Component {
                   {this.state.items.map((item) => {
                     return (
                       <li key={item.id}>
-                        <h3>{item.user}</h3>
-                        <p>{item.title}<br/>
-                        {item.description}<br/>
+                        <h3>{item.title}</h3>
+                        <p>{item.description}<br/>
                         {item.date}<br/>
                         {item.time}<br/>
                           <button onClick={() => this.removeItem(item.id)}>Remove Reminder</button>
