@@ -36,8 +36,7 @@ class App extends Component {
       title: '',
       description: '',
       date: '',
-      time: '',
-      notes: ''
+      time: ''
     });
   }
   componentDidMount() {
