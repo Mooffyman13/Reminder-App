@@ -4,10 +4,10 @@ import { NavLink } from 'react-router-dom';
  
 const Navigation = () => {
     return (
-       <div>
+       <div className="Navbar">
           <NavLink to="/">Home</NavLink>
-          <NavLink to="/about">About</NavLink>
-          <NavLink to="/contact">Contact</NavLink>
+          <NavLink to="/about">Create A Reminder</NavLink>
+          <NavLink to="/contact">Stuff</NavLink>
        </div>
     );
 }

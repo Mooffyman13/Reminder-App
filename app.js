@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import home from './components/home';
 import reminderinput from './components/reminderinput';
-import reminderoutput from './components/reminderoutput';
+import stuff from './components/stuff';
 import error from './components/error';
 import Navigation from './components/navigation';
 import logo from './logo.svg';
@@ -19,7 +19,7 @@ class App extends Component {
             <Switch>
              <Route path="/" component={home} exact/>
              <Route path="/reminderinput" component={reminderinput}/>
-             <Route path="/reminderoutput" component={reminderoutput}/>
+             <Route path="/stuff" component={stuff}/>
             <Route component={error}/>
            </Switch>
         </div> 
