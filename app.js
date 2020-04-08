@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
-import Home from './components/home.js';
-import Reminderinput from './components/reminderinput';
-import Reminderoutput from './components/reminderoutput';
-import Error from './components/error';
+import home from './components/home';
+import reminderinput from './components/reminderinput';
+import reminderoutput from './components/reminderoutput';
+import error from './components/error';
 import Navigation from './components/navigation';
 import logo from './logo.svg';
 import 'style.css';
@@ -17,10 +17,10 @@ class App extends Component {
         <div>
           <Navigation />
             <Switch>
-             <Route path="/" component={Home} exact/>
-             <Route path="/reminderinput" component={Reminderinput}/>
-             <Route path="/reminderoutput" component={Reminderoutput}/>
-            <Route component={Error}/>
+             <Route path="/" component={home} exact/>
+             <Route path="/reminderinput" component={reminderinput}/>
+             <Route path="/reminderoutput" component={reminderoutput}/>
+            <Route component={error}/>
            </Switch>
         </div> 
       </BrowserRouter>
