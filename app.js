@@ -18,8 +18,8 @@ class App extends Component {
           <Navigation />
             <Switch>
              <Route path="/" component={Home} exact/>
-             <Route path="/about" component={About}/>
-             <Route path="/contact" component={Contact}/>
+             <Route path="/reminderinput" component={Reminderinput}/>
+             <Route path="/reminderoutput" component={Reminderoutput}/>
             <Route component={Error}/>
            </Switch>
         </div> 
