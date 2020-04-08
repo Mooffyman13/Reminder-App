@@ -1,106 +1,29 @@
 import React, { Component } from 'react';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+
+import Home from './components/home.js';
+import Reminderinput from './components/Reminderinput';
+import Reminderoutput from './components/Reminderoutput';
+import Error from './components/Error';
+import Navigation from './components/Navigation';
 import logo from './logo.svg';
 import 'style.css';
 import firebase from './firebase.js';
 
 class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      title: '',
-      description: '',
-      date:'',
-      time:'',
-      items: []
-    }
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
-  handleChange(e) {
-    this.setState({
-      [e.target.name]: e.target.value
-    });
-  }
-  handleSubmit(e) {
-    e.preventDefault();
-    const itemsRef = firebase.database().ref('items');
-    const item = {
-      title: this.state.title,
-      description: this.state.description,
-      date: this.state.date,
-      time: this.state.time
-
-    }
-    itemsRef.push(item);
-    this.setState({
-      title: '',
-      description: '',
-      date: '',
-      time: ''
-    });
-  }
-  componentDidMount() {
-    const itemsRef = firebase.database().ref('items');
-    itemsRef.on('value', (snapshot) => {
-      let items = snapshot.val();
-      let newState = [];
-      for (let item in items) {
-        newState.push({
-          id: item,
-          title: items[item].title,
-          description: items[item].description,
-          date: items[item].date,
-          time: items[item].time
-        });
-      }
-      this.setState({
-        items: newState
-      });
-    });
-  }
-  removeItem(itemId) {
-    const itemRef = firebase.database().ref(`/items/${itemId}`);
-    itemRef.remove();
-  }
   render() {
-    return (
-      <div className='app'>
-        <header>
-            <div className="wrapper">
-              <h1>Reminder App</h1>
-                             
-            </div>
-        </header>
-        <div className='container'>
-          <section className='add-item'>
-                <form onSubmit={this.handleSubmit}>
-                  <input type="text" name="title" placeholder="Title" onChange={this.handleChange} value={this.state.username} />
-                  <input type="text" name="description" placeholder="Description" onChange={this.handleChange} value={this.state.description} />
-                  <input type="Date" name="date"  onChange={this.handleChange} value={this.state.date} />
-                  <input type="Time" name="time"  onChange={this.handleChange} value={this.state.time} />
-                  <button>Add Reminder</button>
-                </form>
-          </section>
-          <section className='display-item'>
-              <div className="wrapper">
-                <ul>
-                  {this.state.items.map((item) => {
-                    return (
-                      <li key={item.id}>
-                        <h3>{item.title}</h3>
-                        <p>{item.description}<br/>
-                        {item.date}<br/>
-                        {item.time}<br/>
-                          <button onClick={() => this.removeItem(item.id)}>Remove Reminder</button>
-                        </p>
-                      </li>
-                    )
-                  })}
-                </ul>
-              </div>
-          </section>
-        </div>
-      </div>
+    return (      
+       <BrowserRouter>
+        <div>
+          <Navigation />
+            <Switch>
+             <Route path="/" component={Home} exact/>
+             <Route path="/about" component={About}/>
+             <Route path="/contact" component={Contact}/>
+            <Route component={Error}/>
+           </Switch>
+        </div> 
+      </BrowserRouter>
     );
   }
 }
