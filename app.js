@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import Home from './components/home.js';
-import Reminderinput from './components/Reminderinput';
-import Reminderoutput from './components/Reminderoutput';
-import Error from './components/Error';
-import Navigation from './components/Navigation';
+import Reminderinput from './components/reminderinput';
+import Reminderoutput from './components/reminderoutput';
+import Error from './components/error';
+import Navigation from './components/navigation';
 import logo from './logo.svg';
 import 'style.css';
 import firebase from './firebase.js';
