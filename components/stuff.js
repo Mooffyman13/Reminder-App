@@ -17,7 +17,7 @@ class App extends Component {
             </div>
         </header>
         <div className='container'>
-          <section className='add-item'>
+          <section className='textbox'>
                 <form onSubmit={this.handleSubmit}>
                   I need another page so here is another one with some random documentation
                 </form>

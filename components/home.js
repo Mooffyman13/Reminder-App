@@ -17,7 +17,7 @@ class App extends Component {
             </div>
         </header>
         <div className='container'>
-          <section className='add-item'>
+          <section className='textbox'>
                 <form onSubmit={this.handleSubmit}>
                   Here is my reminder app that doesn't actually remind you of anything. Created using Fiebase and React.js on stackblitz.com. `
                 </form>
