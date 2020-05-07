@@ -77,9 +77,13 @@ class App extends Component {
           <section className='add-item'>
                 <form onSubmit={this.handleSubmit}>
                   <p>Enter your reminders below </p>
-                  <input type="text" name="title" placeholder="Title" onChange={this.handleChange} value={this.state.username} />
-                  <input type="text" name="description" placeholder="Description" onChange={this.handleChange} value={this.state.description} />
+                  Title:
+                  <input type="text" name="title" onChange={this.handleChange} value={this.state.username} />
+                  Description:
+                  <input type="text" name="description" onChange={this.handleChange} value={this.state.description} />
+                  Date:
                   <input type="Date" name="date"  onChange={this.handleChange} value={this.state.date} />
+                  Time:
                   <input type="Time" name="time"  onChange={this.handleChange} value={this.state.time} />
                   <button>Add Reminder</button>
                 </form>
