@@ -137,11 +137,11 @@ form button {
 button {
   font-family: 'Andale Mono', monospace;
   border-radius: 2px;
-  min-width: 88px;
+  min-width: 80px;
   background-color: #1e1e1e;
   cursor: pointer;
   border: 0;
-  min-width: 120px;
+  min-width: 50px;
   color: #c8c8c8;
   font-size: 14px;
   box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
