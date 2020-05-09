@@ -7,7 +7,7 @@ const Navigation = () => {
        <div className="navbar">
           <NavLink to="/">Home</NavLink>
           <NavLink to="/reminderinput">Create A Reminder</NavLink>
-          <NavLink to="/stuff">Stuff</NavLink>
+          <NavLink to="/stuff">How this works</NavLink>
        </div>
     );
 }
