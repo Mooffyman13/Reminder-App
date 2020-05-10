@@ -175,12 +175,11 @@ button {
 
 .textbox {
   border-radius: 2px;
-  margin-right: 50px;
   border-top: 3px solid #880F0F;
   align-content: center;
   background-color: rgb(200, 200, 200);
   padding: 30px;
-  box-shadow: 0 5px 5px 0 rgba(0,0,0,.14), 0 3px 3px -2px rgba(0,0,0,.12), 0 1px 8px 0 rgba(0,0,0,.2);
-  margin-bottom: 20px;  
-  width: 50%;
+  box-shadow: 0 5px 5px 0 rgba(0,0,0,.14), 0 3px 3px -2px rgba(0,0,0,.12), 0 1px 8px 0 rgba(0,0,0,.2);  
+  min-width: 400px;
+  max-width: 1500px;
 }
